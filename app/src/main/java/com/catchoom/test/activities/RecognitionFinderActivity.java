@@ -24,14 +24,14 @@ public class RecognitionFinderActivity  extends CraftARActivity implements Craft
     CraftARSDK mCraftARSDK;
     CraftAROnDeviceIR mOnDeviceIR;
 
-    //ProgressBar mProgress;
+    ProgressBar mProgress;
     long startFinderTimeMillis;
     private final static long FINDER_SESSION_TIME_MILLIS= 10000;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //mProgress = (ProgressBar) findViewById(R.id.search_progress_bar);
+        mProgress = (ProgressBar) findViewById(R.id.search_progress_bar);
     }
 
     @Override
@@ -97,12 +97,12 @@ public class RecognitionFinderActivity  extends CraftARActivity implements Craft
         if (ellapsedTime > FINDER_SESSION_TIME_MILLIS ) {
             stopFinding(Collections.<CraftARResult>emptyList());
         } else {
-            //mProgress.setProgress((int)(ellapsedTime/FINDER_SESSION_TIME_MILLIS));
+            mProgress.setProgress((int)(ellapsedTime/FINDER_SESSION_TIME_MILLIS));
         }
     }
 
     private void processResults(List<CraftARResult> results) {
-        //mProgress.setProgress(100);
+        mProgress.setProgress(100);
         if (results !=null || results.size() > 0) {
 
         }
